@@ -1,0 +1,16 @@
+.nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background-color: var(--color2);
+
+    a {
+        text-decoration: none;
+        padding: 10px;
+        transition: 0.1s;
+        color: var(--color4);
+
+        &:hover {
+            color: var(--color3);
+        }
+    }
+}

@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar/Navbar";
+import styles from "./App.module.scss";
+
+const Recharts = React.lazy(() => import("./views/Recharts/Recharts"));
+const Nivo = React.lazy(() => import("./views/Nivo/Nivo"));
+const D3 = React.lazy(() => import("./views/D3/D3"));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <React.Suspense fallback="Loading...">
+            <div className={styles.App}>
+                <Navbar />
+                <Switch>
+                    <Route exact path="/">
+                        Home
+                    </Route>
+                    <Route path="/recharts">
+                        <Recharts />
+                    </Route>
+                    <Route path="/nivo">
+                        <Nivo />
+                    </Route>
+                    <Route path="/d3">
+                        <D3 />
+                    </Route>
+                </Switch>
+            </div>
+        </React.Suspense>
+    );
 }
 
 export default App;
