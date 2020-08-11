@@ -1,0 +1,9 @@
+@import "../../../App.module.scss";
+
+.tooltip {
+    @include box-shadow;
+    padding: 20px;
+    background-color: var(--color2);
+    color: var(--color4);
+    display: grid;
+}

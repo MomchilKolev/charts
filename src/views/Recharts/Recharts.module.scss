@@ -1,0 +1,9 @@
+.main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    .simple {
+        grid-column: 1/2;
+        width: 100%;
+    }
+}
